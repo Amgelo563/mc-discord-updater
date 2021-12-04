@@ -23,8 +23,7 @@ class Bot {
         const response = await (await fetch(`https://api.minetools.eu/ping/${server.ip}/${server.port}`)).json();
         if (response.error) return channel.setName(offline);
 
-        const playersResponse = response.players;
-        await channel.setName(format.replace('%p%', playersResponse.online));
+        await channel.setName(format.replace('%p%', response.players.online));
     }
 
     async start() {
