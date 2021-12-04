@@ -1,0 +1,11 @@
+{
+    "token": "TOKEN",
+    "channel_id": "CHANNEL_ID",
+    "format": "📊 %p% players online",
+    "offline": "🛑 Offline",
+    "server": {
+        "ip": "mc.hypixel.net",
+        "port": 25565
+    },
+    "timeout": 5000
+}
