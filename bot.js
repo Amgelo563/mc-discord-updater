@@ -28,7 +28,7 @@ class Bot {
 
     async start() {
         await this.#client.login(config.token);
-        console.log(`Started. Listening to ${config.server.ip}:${config.server.portde}`)
+        console.log(`Started. Listening to ${config.server.ip}:${config.server.port}`)
         await this.renameServer(this.#client);
         setInterval(this.renameServer, config.timeout, this.#client);
     }
