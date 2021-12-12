@@ -25,6 +25,7 @@ All the configuration is done through the `config.json` file.
 * `server` - The server's data.
   * `ip` - The server's IP.
   * `port` - The server's port.
+* `motd_pfp` - Whether the bot will try to fetch and update its profile picture according to the server's icon.
 * `defPresence` - The bot's presence data by default.
   * `status` - The bot's status. This is the only option that will remain constant whether presence updating is enabled or not. [Possible values.](https://discord.js.org/#/docs/main/stable/typedef/PresenceStatus).
   * `activity` - The bot's activity (This is only used if presence updating is disabled)
@@ -66,6 +67,6 @@ This bot uses Discord.js v13, so **Node.js 16.6.0 or newer** is required.
 
 ## 💻 Development
 
-The bot uses the [Minetools API](https://api.minetools.eu/) to get server data, but it could technically be adapted to any kind of online API or direct connection to the server. If you have a better example, feel free to let me know or leave a PR.
+The bot uses the [minecraft-server-ping](https://www.npmjs.com/package/minecraft-server-ping) to get server data directly from the server by pinging it. If you think you have a better implementation, feel free to leave a PR.
 
 ---

@@ -4,6 +4,7 @@
         "ip": "mc.hypixel.net",
         "port": 25565
     },
+    "motd_pfp": true,
     "defPresence": {
         "status": "dnd",
         "activity": {

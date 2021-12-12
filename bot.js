@@ -1,5 +1,7 @@
 const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const { Client, Intents} = require('discord.js');
+const fs = require('fs');
+const { Client, Intents } = require('discord.js');
+const { ping } = require('minecraft-server-ping');
 
 const config = require('./config.json');
 
@@ -23,9 +25,13 @@ class Bot {
     }
 
     async getPlayers() {
-        const response = await (await fetch(`https://api.minetools.eu/ping/${config.server.ip}/${config.server.port}`)).json();
-        if (response.error) return 'offline';
-        return response.players.online;
+        try {
+            const serverPing = await ping(config.server.ip, config.server.port);
+            return serverPing.players.online;
+        } catch (e) {
+            if (e.code === 'ENOTFOUND') return 'offline';
+            console.error(e);
+        }
     }
 
     async updatePresence(client, getPlayers) {
@@ -67,6 +73,11 @@ class Bot {
             await this.updateChannelDesc(this.#client, this.getPlayers);
             setInterval(this.updateChannelDesc, config.updates.channel_description.timeout * 1000, this.#client, this.getPlayers)
         };
+
+        if (config.motd_pfp) {
+            const serverPing = await ping(config.server.ip, config.server.port);
+            this.#client.user.setAvatar(Buffer.from(serverPing.favicon.replace(/^data:image\/\w+;base64,/, ''), 'base64'));
+        }
 
     }
 }
