@@ -6,7 +6,7 @@
     },
     "defPresence": {
         "status": "dnd",
-        "defaultActivity": {
+        "activity": {
             "type": "PLAYING",
             "name": "at mc.hypixel.net"
         }
