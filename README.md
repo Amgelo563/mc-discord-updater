@@ -52,6 +52,18 @@ All the configuration is done through the `config.json` file.
 
 ---
 
+## 🏃‍♂️ Setting the Bot up
+
+This bot uses Discord.js v13, so **Node.js 16.6.0 or newer** is required.
+
+1. Change `exampleconfig.json` according to your needs.
+2. Rename `exampleconfig.json` to `config.json`.
+3. On a command prompt opened on the bot's working folder, use `npm i` to install the dependencies.
+4. On the same command prompt use `node .`
+5. Enjoy!
+
+---
+
 ## 💻 Development
 
 The bot uses the [Minetools API](https://api.minetools.eu/) to get server data, but it could technically be adapted to any kind of online API or direct connection to the server. If you have a better example, feel free to let me know or leave a PR.
