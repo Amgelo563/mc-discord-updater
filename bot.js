@@ -1,5 +1,3 @@
-const fetch = (...args) => import('node-fetch').then(({ default: fetch }) => fetch(...args));
-const fs = require('fs');
 const { Client, Intents } = require('discord.js');
 const { ping } = require('minecraft-server-ping');
 
