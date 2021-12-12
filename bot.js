@@ -50,6 +50,11 @@ class Bot {
         return channel.setTopic(config.updates.channel_name.format.replace('%p%', count));
     }
 
+    async updateProfilePicture(client) {
+        const serverPing = await ping(config.server.ip, config.server.port);
+        return client.user.setAvatar(Buffer.from(serverPing.favicon.replace(/^data:image\/\w+;base64,/, ''), 'base64'));
+    }
+
     async start() {
         await this.#client.login(config.token);
         console.log(`Started. Listening to ${config.server.ip}:${config.server.port}`);
@@ -73,10 +78,9 @@ class Bot {
         };
 
         if (config.motd_pfp) {
-            const serverPing = await ping(config.server.ip, config.server.port);
-            this.#client.user.setAvatar(Buffer.from(serverPing.favicon.replace(/^data:image\/\w+;base64,/, ''), 'base64'));
+            await this.updateProfilePicture(this.#client);
+            setInterval(this.updateProfilePicture, 21600000, this.#client) // 6 hours, feel free to change this according to your needs
         }
-
     }
 }
 
