@@ -4,7 +4,7 @@
 
 ## 🚀 Introduction
 
-A Discord bot script that updates a channel's name to fit the amount of players on a MC server.
+A Discord bot script that updates a channel or Discord activity to fit the amount of players on a MC server.
 At the moment, it supports channel name updating, channel description updating and bot presence updating.
 
 ---
