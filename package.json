@@ -1,6 +1,6 @@
 {
   "name": "mc-discord-updater",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "A Discord bot script to update a channel according to amount of players on a MC server.",
   "main": "index.js",
   "scripts": {

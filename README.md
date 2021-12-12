@@ -1,28 +1,59 @@
 # 📊 MC > Discord Updater
+
 ---
+
 ## 🚀 Introduction
-A simple Discord bot script that updates a channel's name to fit the amount of players on a MC server.
-This is not really meant to be used as a full bot, but rather an utility so others can be guided on how a bot that does this could be done, but still, it's still usable as a full bot if you only want it for a small server.
+
+A Discord bot script that updates a channel's name to fit the amount of players on a MC server.
+At the moment, it supports channel name updating, channel description updating and bot presence updating.
+
+---
+
+## 🚧 Warning
+
+Discord's API limits on channel renaming and topic updating may be high at the moment (nobody seems to know which they exactly are, but
+around 2 renames per 10 minutes seems to be a safe guess). At such, don't try setting timeouts to values that are too low or it may
+not work at all.
 
 ---
 
 ## ⚙ Configuration
+
 All the configuration is done through the `config.json` file.
+
 * `token` - The bot's token on Discord.
-* `channel_id` - The ID (not name) of the channel to modify.
-* `format` - The format to use to name the channel. `%p%` is used as a placeholder to replace the amount of players.
-* `offline` - The string to use in case the server is offline.
 * `server` - The server's data.
   * `ip` - The server's IP.
   * `port` - The server's port.
-* `timeout` - The timeout, **in milliseconds**, to update the channel's name.
+* `defPresence` - The bot's presence data by default.
+  * `status` - The bot's status. This is the only option that will remain constant whether presence updating is enabled or not. [Possible values.](https://discord.js.org/#/docs/main/stable/typedef/PresenceStatus).
+  * `activity` - The bot's activity (This is only used if presence updating is disabled)
+    * `type` - The bot's activity type. [Possible values.](https://discord.js.org/#/docs/main/stable/typedef/ActivityType)
+    * `name` - The string to use as the bot's current activity.
+* `updates` - Options for the bot to update.
+  * `presence` - Options for presence updating.
+    * `enabled` - Whether presence updating is enabled or not.
+    * `type` - The bot's activity type. [Possible values.](https://discord.js.org/#/docs/main/stable/typedef/ActivityType)
+    * `format` - The string to use when updating. `%p%` is used as a placeholder and will be replaced with the playercount.
+    * `offline` - The string to use if the server is offline.
+    * `timeout` - The timeout (in seconds) between each update.
+  * `channel_name` - Options for channel name updating.
+    * `enabled` - Whether channel name updating is enabled or not.
+    * `channel_id` - The ID (not name) of the channel to update.
+    * `format` - The string to use when updating. `%p%` is used as a placeholder and will be replaced with the playercount.
+    * `offline` - The string to use if the server is offline.
+    * `timeout` - The timeout (in seconds) between each update.
+  * `channel_description` - Options for channel description updating.
+    * `enabled` - Whether channel name description is enabled or not.
+    * `channel_id` - The ID (not name) of the channel to update.
+    * `format` - The string to use when updating. `%p%` is used as a placeholder and will be replaced with the playercount.
+    * `offline` - The string to use if the server is offline.
+    * `timeout` - The timeout (in seconds) between each update.
 
 ---
 
 ## 💻 Development
 
 The bot uses the [Minetools API](https://api.minetools.eu/) to get server data, but it could technically be adapted to any kind of online API or direct connection to the server. If you have a better example, feel free to let me know or leave a PR.
-
-As for the actual code, it's [located here](https://github.com/Amgelo563/mc-discord-updater/blob/main/bot.js#L21-L27), the rest is mostly Discord connection stuff. This repository is licensed with MIT so as a TL;DR, feel free to do whatever you'd like with this.
 
 ---
