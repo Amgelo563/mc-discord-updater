@@ -1,5 +1,7 @@
 # 📊 MC > Discord Updater
 
+*[En Español]()*
+
 ---
 
 ## 🚀 Introduction
