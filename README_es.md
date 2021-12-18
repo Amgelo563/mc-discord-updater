@@ -57,7 +57,7 @@ en ellas. Cualquier otro valor va a causar un error.
 
 ---
 
-## 🏃‍ Configurando el Bot
+## 🏃‍♂️ Configurando el Bot
 
 El bot usa Discord.js v13, así que necesitarás **Node.js 16.6.0 o más alto**.
 
