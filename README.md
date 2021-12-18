@@ -1,6 +1,6 @@
 # 📊 MC > Discord Updater
 
-*[En Español]()*
+*[En Español](README_es.md)*
 
 ---
 
@@ -13,9 +13,9 @@ At the moment, it supports channel name updating, channel description updating a
 
 ## 🚧 Warning
 
-Discord's API limits on channel renaming and topic updating may be high at the moment (nobody seems to know which they exactly are, but
-around 2 renames per 10 minutes seems to be a safe guess). At such, don't try setting timeouts to values that are too low or it may
-not work at all.
+Discord's API limits on channel renaming and topic updating may be high at the moment (nobody seems to know which they
+exactly are, but around 2 renames per 10 minutes seems to be a safe guess). At such, don't try setting timeouts to
+values that are lower than this or the bot may not work at all.
 
 ---
 
@@ -69,6 +69,7 @@ This bot uses Discord.js v13, so **Node.js 16.6.0 or newer** is required.
 
 ## 💻 Development
 
-The bot uses the [minecraft-server-ping](https://www.npmjs.com/package/minecraft-server-ping) to get server data directly from the server by pinging it. If you think you have a better implementation, feel free to leave a PR.
+The bot uses the [minecraft-server-ping](https://www.npmjs.com/package/minecraft-server-ping) library to get server data
+directly from the server by pinging it. If you think you have a better implementation, feel free to leave a PR.
 
 ---
